@@ -1,0 +1,8 @@
+/* Shared by every page: colour tokens, base text, top-bar state, reduced motion. */
+:root{--bg:hsl(calc(var(--h,200) + 20),37.5%,3.1%);--ink:#e8f1f8;--muted:#8896a6;--blue:hsl(calc(var(--h,200) + 0.2),100.0%,68.0%);--line:hsl(calc(var(--h,200) + 12.7),33.3%,12.9%)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+nav.s{background:hsla(calc(var(--h,200) + 20),37.5%,3.1%,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding-top:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+nav a{transition:color .25s}nav a:hover{color:var(--blue)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}

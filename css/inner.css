@@ -1,0 +1,14 @@
+/* Shared by characters.html and story.html: page frame, fixed top bar, glass pill button. */
+@property --c{syntax:"<color>";inherits:true;initial-value:#5cc8ff}
+*,*::before,*::after{box-sizing:border-box}
+body{overflow-x:hidden}
+h1,h2{font-family:Syne,system-ui,sans-serif;font-weight:600;margin:0;line-height:1.1}a{color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:24px clamp(20px,4vw,56px);font-weight:500;transition:background .3s,padding .3s}
+nav a{text-decoration:none;margin-left:28px;transition:color .25s}nav a:hover{color:var(--blue)}nav a{white-space:nowrap}nav .logo{margin:0;font:600 1rem Syne,system-ui,sans-serif}
+.tag{display:block;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--c)}
+.more{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:99px;text-decoration:none;color:var(--ink);font:600 .86rem/1 Syne,system-ui,sans-serif;letter-spacing:.04em;
+border:1px solid color-mix(in srgb,var(--c) 55%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.02)),color-mix(in srgb,var(--c) 12%,transparent);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 12px 30px -16px var(--c);transition:border-color .3s,box-shadow .3s,background .3s,transform .3s}
+.more:hover,.more:focus-visible{border-color:var(--c);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 0 26px -4px var(--c);background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.03)),color-mix(in srgb,var(--c) 22%,transparent)}
+.more:active{transform:scale(.97)}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Contents (VS Code: Ctrl+K Ctrl+0 folds everything; search "#region" to jump):
+     1. Head: meta and SEO
+     2. Head: fonts
+     3. Head: scripts and styles
+     4. Nav
+     5. Dial and stage
+     6. Gallery lightbox
+     7. Page scripts
+-->
+<html lang="en">
+<head>
+<!-- #region Head: meta and SEO -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Characters · Mera Melody</title>
+<meta name="description" content="The 3D characters of Mera Melody and the stories behind them.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Characters · Mera Melody">
+<meta property="og:description" content="The 3D characters of Mera Melody and the stories behind them.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Characters · Mera Melody">
+<meta name="twitter:description" content="The 3D characters of Mera Melody and the stories behind them.">
+<!-- #endregion -->
+<!-- #region Head: fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<!-- #endregion -->
+<!-- #region Head: scripts and styles -->
+<script>document.documentElement.className="js"</script>
+<script src="js/protect.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/nav-fx.js"></script>
+<script src="js/wipe.js"></script>
+<script src="js/loader.js" data-lore-always></script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/inner.css">
+<link rel="stylesheet" href="css/characters.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/rtl.css">
+<!-- #endregion -->
+</head>
+<body>
+<!-- #region Nav -->
+<nav aria-label="Main"><a class="logo" href="index.html" data-go><span class="bk">←</span> Mera Melody</a><span><a href="#" data-sel="0" aria-current="page" data-i18n="nav.characters">Characters</a><a href="index.html#about" data-go data-i18n="nav.about">About</a><a href="index.html#contact" data-go data-i18n="nav.contact">Contact</a></span></nav>
+
+<!-- #endregion -->
+<!-- #region Dial and stage -->
+<main class="deck" id="deck">
+<h1 class="sr">Characters</h1>
+<div class="dialcol" id="dialcol">
+ <div class="dial" id="dial" data-open="false">
+  <div class="disc"></div>
+  <svg class="gear g1" id="g1" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+  <svg class="gear g2" viewBox="-100 -100 200 200" aria-hidden="true"><circle r="76" fill="none" stroke="rgba(255,255,255,.14)" stroke-width=".5"/><circle r="70" fill="none" stroke="rgba(255,255,255,.34)" stroke-width="3" stroke-dasharray=".8 6.34"/></svg>
+  <div class="ind"></div>
+  <button class="hub" id="hub" type="button" aria-expanded="false" aria-controls="opts">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M5.5 18.5l1.8-1.8M16.7 7.3l1.8-1.8"/></svg>
+   <span data-i18n="projects">Projects</span>
+  </button>
+  <ul class="opts" id="opts" aria-label="Projects"></ul>
+ </div>
+ <p class="dhint" id="dhint" aria-live="polite">Click the gear to open my projects.</p>
+</div>
+
+<section class="stage" id="stage" aria-label="Project details">
+ <span class="cnt" id="cnt" aria-hidden="true">01 / 04</span>
+</section>
+</main>
+
+<!-- #endregion -->
+<!-- #region Gallery lightbox -->
+<div class="lb" id="lb" role="dialog" aria-label="Image viewer"><button aria-label="Close">×</button><img alt=""><p></p></div>
+
+<!-- #endregion -->
+<!-- #region Page scripts -->
+<script src="js/characters.js"></script>
+<script src="js/cursor.js" defer></script>
+<!-- #endregion -->
+</body>
+</html>

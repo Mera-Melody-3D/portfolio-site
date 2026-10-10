@@ -1,0 +1,40 @@
+/* Top menu: a floating glass capsule. A glowing "lens" slides to the link you hover (or the section you are on),
+   and a light runs around the capsule's edge. Used by index.html and characters.html (nav-fx.js adds the lens). */
+@property --a{syntax:"<angle>";initial-value:0deg;inherits:false}
+nav>span{position:relative;isolation:isolate;display:flex;align-items:center;gap:2px;padding:5px;margin-top:-8px;border-radius:99px;
+background:hsla(calc(var(--h,200) + 16),40%,6%,.55);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
+box-shadow:0 10px 30px -10px hsla(calc(var(--h,200) + .2),100%,60%,.35),inset 0 1px 0 rgba(255,255,255,.08);
+animation:navin .9s cubic-bezier(.2,.9,.2,1) .35s both}
+/* light running around the edge */
+nav>span::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;padding:1px;pointer-events:none;
+background:conic-gradient(from var(--a),hsla(calc(var(--h,200) + 12),40%,30%,.35) 0,hsl(calc(var(--h,200) + .2),100%,70%) 12%,hsla(calc(var(--h,200) + 12),40%,30%,.35) 28%,hsla(calc(var(--h,200) + 12),40%,30%,.35) 60%,hsl(calc(var(--h,200) + 15),100%,62%) 72%,hsla(calc(var(--h,200) + 12),40%,30%,.35) 88%);
+-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+animation:navspin 6s linear infinite}
+nav>span :is(a,button){position:relative;z-index:1;display:flex;align-items:center;margin:0;padding:10px 18px;border:0;border-radius:99px;background:none;cursor:pointer;
+text-decoration:none;font:600 .84rem/1 Syne,system-ui,sans-serif;letter-spacing:.05em;color:hsl(calc(var(--h,200) + 10),22%,76%);transition:color .25s,transform .25s}
+nav>span :is(a,button):hover,nav>span :is(a,button):focus-visible,nav>span :is(a,button).on,nav>span :is(a,button)[aria-current="page"]{color:#fff}
+nav>span :is(a,button):active{transform:scale(.94)}
+nav>span :is(a,button):focus-visible{outline:none}
+/* the sliding lens (made by nav-fx.js) */
+nav>span .nav-ind{position:absolute;z-index:0;top:5px;bottom:5px;left:0;width:0;border-radius:99px;pointer-events:none;opacity:0;
+background:radial-gradient(120% 140% at 50% 0,hsla(calc(var(--h,200) + .2),100%,70%,.42),hsla(calc(var(--h,200) + 10),90%,45%,.14) 70%),rgba(255,255,255,.04);
+box-shadow:0 0 22px -2px hsla(calc(var(--h,200) + .2),100%,68%,.55),inset 0 0 0 1px hsla(calc(var(--h,200) + .2),100%,75%,.45),inset 0 -10px 14px -10px hsla(calc(var(--h,200) + .2),100%,80%,.7);
+transition:left .5s cubic-bezier(.3,1.35,.5,1),width .5s cubic-bezier(.3,1.35,.5,1),opacity .3s}
+nav>span .nav-ind.show{opacity:1}
+nav>span :is(a,button)::after{content:"";position:absolute;left:50%;bottom:3px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:hsl(calc(var(--h,200) + .2),100%,75%);box-shadow:0 0 8px hsl(calc(var(--h,200) + .2),100%,70%);opacity:0;transform:scale(0);transition:.3s}
+nav>span :is(a,button).on::after,nav>span :is(a,button)[aria-current="page"]::after{opacity:1;transform:none}
+@keyframes navin{from{opacity:0;transform:translateY(-24px) scale(.9)}to{opacity:1;transform:none}}
+@keyframes navspin{to{--a:360deg}}
+@media(max-width:760px){nav>span{padding:4px}nav>span{gap:0}nav>span :is(a,button){padding:9px 8px;font-size:.66rem;letter-spacing:0}nav .logo{font-size:.95rem}nav>span .nav-ind{top:4px;bottom:4px}nav>span .mmt-btn i{display:none}}
+@media(prefers-reduced-motion:reduce){nav>span,nav>span::before{animation:none}nav>span .nav-ind{transition:none}}
+
+/* ---- custom scrollbar: dark track, glowing blue thumb with grip ticks (matches the site) ---- */
+html{scrollbar-width:thin;scrollbar-color:hsl(calc(var(--h,200) + 8),90%,55%) hsl(calc(var(--h,200) + 20),37.5%,5%)}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:hsl(calc(var(--h,200) + 20),37.5%,4.5%);border-left:1px solid hsl(calc(var(--h,200) + 13),34%,14%)}
+::-webkit-scrollbar-thumb{min-height:56px;border:3px solid transparent;border-radius:99px;background-clip:padding-box;
+ background-image:repeating-linear-gradient(0deg,rgba(3,8,14,.5) 0 2px,transparent 2px 9px),linear-gradient(180deg,hsl(calc(var(--h,200) + .2),100%,72%),hsl(calc(var(--h,200) + 15),100%,50%));
+ box-shadow:inset 0 0 8px hsla(calc(var(--h,200) + .2),100%,80%,.45)}
+::-webkit-scrollbar-thumb:hover{background-image:repeating-linear-gradient(0deg,rgba(3,8,14,.35) 0 2px,transparent 2px 9px),linear-gradient(180deg,hsl(calc(var(--h,200) + .2),100%,80%),hsl(calc(var(--h,200) + 10),100%,60%))}
+::-webkit-scrollbar-button,::-webkit-scrollbar-corner{display:none;width:0;height:0}
+@supports selector(::-webkit-scrollbar){html{scrollbar-width:auto;scrollbar-color:auto}}

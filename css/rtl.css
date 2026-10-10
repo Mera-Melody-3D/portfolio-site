@@ -1,0 +1,110 @@
+/* Persian (right-to-left) layout. Every rule starts with html[data-lang="fa"], so English is not touched at all.
+   lang.js puts dir="rtl" on <html> in Persian: that alone flips flex rows, grids, text-align and the order of
+   columns. This file only fixes what is written with physical left/right values (positions, margins, gradients...).
+   NOT mirrored on purpose: the 3D models and their still images, the gallery pictures, the cursor arrow. */
+/* Contents (VS Code: Ctrl+K Ctrl+0 folds everything; search "#region" to jump):
+   1. Menu (shared)
+   2. Index: hero
+   3. Index: dock
+   4. Index: sections
+   5. Characters page
+   6. Phones
+   7. Editor panel
+   8. Story page
+*/
+
+/* #region Menu (shared) */
+/* ================= shared: menu ================= */
+html[data-lang="fa"] nav>span{right:auto;left:clamp(14px,4vw,56px)}                 /* banners hang from the top-left */
+html[data-lang="fa"] nav>span .mmt-btn i{margin:0 0 0 7px}                             /* glowing dot sits before the label */
+html[data-lang="fa"] nav .bk{display:inline-block;transform:scaleX(-1)}                /* "back" arrow points right */
+html[data-lang="fa"] .wipe{direction:ltr}                                              /* page-transition animation: keep as designed */
+
+/* #endregion */
+/* #region Index: hero */
+/* ================= index.html: hero ================= */
+/* the photo and the glow are flipped together; object-position stays 72% 30% (it is mirrored with the element) */
+html[data-lang="fa"] .hero>img{transform:scaleX(-1)}
+/* flip the glow images, not the .eye box: a transform on .eye would isolate mix-blend-mode:screen (black square). The box itself is moved in eye() in index.html */
+html[data-lang="fa"] .eye img{transform:scaleX(-1)}
+html[data-lang="fa"] .hero::after{background:radial-gradient(circle 460px at var(--x,28%) var(--y,40%),transparent 0,hsla(calc(var(--h,200) + 20),37.5%,3.1%,.55) 100%),linear-gradient(0deg,var(--bg) 0,transparent 35%)}
+html[data-lang="fa"] .fog{background:radial-gradient(ellipse 55% 45% at 22% 72%,hsla(calc(var(--h,200) + 10),66.7%,47.1%,.30),transparent 70%),radial-gradient(ellipse 45% 30% at 75% 95%,hsla(calc(var(--h,200) + 14.3),63.6%,43.1%,.2),transparent 70%)}
+html[data-lang="fa"] .cue{right:auto;left:clamp(20px,5vw,64px);direction:ltr}          /* ltr keeps the line below the vertical text */
+html[data-lang="fa"] .btn.p::after{left:auto;right:-80%;background:linear-gradient(260deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(20deg);transition:right .8s}
+html[data-lang="fa"] .btn.p:hover::after{left:auto;right:130%}
+
+/* #endregion */
+/* #region Index: dock */
+/* ================= index.html: dock ================= */
+html[data-lang="fa"] .cards{padding:12px 12px 44px 18px;margin:-12px -12px -44px 0}
+html[data-lang="fa"] .cards.more{-webkit-mask-image:linear-gradient(270deg,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(270deg,#000 calc(100% - 64px),transparent)}
+html[data-lang="fa"] .cards li::before{transform:translate(calc(var(--st)*-7px),calc(var(--st)*7px)) skewX(var(--sk))}    /* the stacked layers peek out to the left */
+html[data-lang="fa"] .cards li::after{transform:translate(calc(var(--st)*-14px),calc(var(--st)*14px)) skewX(var(--sk))}
+html[data-lang="fa"] .card{padding:10px 17px 10px 16px}
+html[data-lang="fa"] .card::before{background:linear-gradient(248deg,transparent 0 58%,rgba(255,255,255,.07) 58% 80%,transparent 80%)}
+html[data-lang="fa"] .panel::after{background:linear-gradient(270deg,transparent,hsl(calc(var(--h,200) + 0.2),100.0%,68.0%) 35%,#a08cff 70%,transparent)}
+html[data-lang="fa"] .panel div{border-left:0;border-right:1px solid rgba(255,255,255,.1)}
+html[data-lang="fa"] .panel div:first-child{border-right:0}
+
+/* #endregion */
+/* #region Index: sections */
+/* ================= index.html: sections ================= */
+html.js[data-lang="fa"] h2::after{transform-origin:right}                              /* heading rule grows from the title */
+/* .about is a 2-column grid: dir=rtl already puts the heading on the right and the text on the left. */
+
+/* #endregion */
+/* #region Characters page */
+/* ================= characters.html ================= */
+html[data-lang="fa"] .deck{background:radial-gradient(ellipse 55% 60% at 22% 45%,color-mix(in srgb,var(--c) 11%,transparent),transparent 70%)}
+html[data-lang="fa"] .stage{background:radial-gradient(ellipse 70% 80% at 28% 46%,color-mix(in srgb,var(--c) 13%,transparent),transparent 72%),rgba(255,255,255,.015)}
+html[data-lang="fa"] .cnt{right:auto;left:24px;direction:ltr}                          /* ltr: "01 / 04" must not read backwards */
+html[data-lang="fa"] .hint{right:auto;left:24px}
+html[data-lang="fa"] .media{transform:translateX(-34px) scale(.98)}
+html[data-lang="fa"] .pane.on .media{transform:none}
+html[data-lang="fa"] .poster.cover{-webkit-mask-image:linear-gradient(270deg,transparent,#000 20%);mask-image:linear-gradient(270deg,transparent,#000 20%)}   /* fades the edge that meets the info card */
+html[data-lang="fa"] .lb button{right:auto;left:22px}
+html[data-lang="fa"] .more i{transform:scaleX(-1)}html[data-lang="fa"] .more:hover i{transform:scaleX(-1) translateX(4px)}   /* the arrow of the story button points left */
+
+/* dial: gear turns the other way, options fan out to the left */
+html[data-lang="fa"] .g1{transform:rotate(calc(var(--rot,0deg)*-1))}
+html[data-lang="fa"] .g2{transform:rotate(calc(var(--rot,0deg)*1.5))}
+html[data-lang="fa"] .dial[data-open="true"] .hub svg{transform:rotate(-90deg)}
+
+@media(min-width:1100px){
+html[data-lang="fa"] .ind{left:auto;right:50%;transform-origin:100% 50%;transform:rotate(calc(var(--ia,0deg)*-1));background:linear-gradient(270deg,transparent 0 77%,var(--c) 77%)}
+html[data-lang="fa"] .opts li{left:auto;right:50%;transform:translate(calc(var(--cx)*var(--ra)*var(--k)*-1),calc(var(--sy)*var(--ra)*var(--k))) translateY(-50%)}
+html[data-lang="fa"] .o{margin-left:0;margin-right:-6px;padding:10px 0 10px 14px}
+html[data-lang="fa"] .dial.many .o{padding-top:5px;padding-bottom:5px}
+/* gallery: no padding on the side that touches the info column (now the right) */
+html[data-lang="fa"] .gwrap{padding:clamp(20px,3vw,44px) 0 clamp(20px,3vw,44px) clamp(20px,3vw,44px)}
+}
+
+@media(max-width:1099px){
+html[data-lang="fa"] .cnt{left:18px}
+}
+
+/* #endregion */
+/* #region Phones */
+/* ================= phones ================= */
+@media(max-width:760px){
+html[data-lang="fa"] .cards{scroll-padding-left:0;scroll-padding-right:clamp(20px,5vw,64px);padding:12px clamp(20px,5vw,64px) 28px 36px}
+}
+
+/* #endregion */
+/* #region Editor panel */
+/* ================= editor panel (localhost only) stays as it is ================= */
+html[data-lang="fa"] #mm-editor{direction:ltr}
+
+/* #endregion */
+/* #region Story page */
+/* ================= story.html ================= */
+html[data-lang="fa"] .prog{transform-origin:100% 50%}
+html[data-lang="fa"] .back .bk,html[data-lang="fa"] .more .bk{transform:scaleX(-1)}
+html[data-lang="fa"] .back:hover .bk,html[data-lang="fa"] .more:hover .bk{transform:scaleX(-1) translateX(-4px)}
+html[data-lang="fa"] .hero{background:radial-gradient(ellipse 60% 70% at 22% 40%,color-mix(in srgb,var(--c) 14%,transparent),transparent 72%)}   /* picture moves to the left, so does the glow */
+@media(min-width:761px){
+html[data-lang="fa"] .hero{--bx:30%}
+html[data-lang="fa"] .art:not(.ban) img{-webkit-mask-image:linear-gradient(270deg,transparent,#000 42%),linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(270deg,transparent,#000 42%),linear-gradient(180deg,#000 62%,transparent)}
+html[data-lang="fa"] .art.tall img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent),linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent),linear-gradient(180deg,#000 62%,transparent)}   /* centred figure: symmetric fade */
+}
+/* #endregion */

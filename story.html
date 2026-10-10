@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Contents (VS Code: Ctrl+K Ctrl+0 folds everything; search "#region" to jump):
+     1. Head: meta and SEO
+     2. Head: fonts
+     3. Head: scripts and styles
+     4. Nav
+     5. Reading progress
+     6. Story (drawn by js/story.js)
+     7. Page scripts
+-->
+<html lang="en">
+<head>
+<!-- #region Head: meta and SEO -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Story · Mera Melody</title>
+<meta name="description" content="The full story behind each 3D character of Mera Melody.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Story · Mera Melody">
+<meta property="og:description" content="The full story behind each 3D character of Mera Melody.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Story · Mera Melody">
+<meta name="twitter:description" content="The full story behind each 3D character of Mera Melody.">
+<!-- #endregion -->
+<!-- #region Head: fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600&family=DM+Sans:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- #endregion -->
+<!-- #region Head: scripts and styles -->
+<script>document.documentElement.className="js"</script>
+<script src="js/protect.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/nav-fx.js"></script>
+<script src="js/wipe.js"></script>
+<script src="js/loader.js" data-lore-always></script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/inner.css">
+<link rel="stylesheet" href="css/story.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/rtl.css">
+<!-- #endregion -->
+</head>
+<body>
+<!-- #region Nav -->
+<nav aria-label="Main"><a class="logo" href="index.html" data-go><span class="bk">←</span> Mera Melody</a><span><a href="characters.html" id="navch" data-go aria-current="page" data-i18n="nav.characters">Characters</a><a href="index.html#about" data-go data-i18n="nav.about">About</a><a href="index.html#contact" data-go data-i18n="nav.contact">Contact</a></span></nav>
+<!-- #endregion -->
+<!-- #region Reading progress -->
+<div class="prog" id="prog" aria-hidden="true"></div>
+<!-- #endregion -->
+<!-- #region Story (drawn by js/story.js) -->
+<main id="app"></main>
+
+<!-- #endregion -->
+<!-- #region Page scripts -->
+<script src="js/story.js"></script>
+<script src="js/cursor.js" defer></script>
+<!-- #endregion -->
+</body>
+</html>

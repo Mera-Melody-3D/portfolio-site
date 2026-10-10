@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# After you publish, add your address here (replace the example):
+# Sitemap: https://YOUR-NAME.github.io/portfolio-site/sitemap.xml

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- Contents (VS Code: Ctrl+K Ctrl+0 folds everything; search "#region" to jump):
+     1. Head: meta and SEO
+     2. Head: fonts
+     3. Head: scripts and styles
+     4. Nav
+     5. Hero
+     6. About
+     7. Melody line
+     8. Contact
+     9. Footer
+     10. Page scripts
+-->
+<html lang="en">
+<head>
+<!-- #region Head: meta and SEO -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Mera Melody · 3D Character Artist</title>
+<meta name="description" content="3D characters made in Blender: robots, creatures and the stories behind them.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mera Melody · 3D Character Artist">
+<meta property="og:description" content="3D characters made in Blender: robots, creatures and the stories behind them.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mera Melody · 3D Character Artist">
+<meta name="twitter:description" content="3D characters made in Blender: robots, creatures and the stories behind them.">
+<!-- After publishing, add: <meta property="og:image" content="https://YOUR-SITE-ADDRESS/images/hero-1280.jpg"> -->
+<!-- #endregion -->
+<!-- #region Head: fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<!-- #endregion -->
+<!-- #region Head: scripts and styles -->
+<script>document.documentElement.className="js"</script>
+<script src="js/protect.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/nav-fx.js"></script>
+<script src="js/wipe.js"></script>
+<script src="js/loader.js"></script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/rtl.css">
+<!-- #endregion -->
+</head>
+<body>
+<!-- #region Nav -->
+<nav aria-label="Main"><a class="logo" href="#top">Mera Melody</a><span><a href="characters.html" data-go data-i18n="nav.characters">Characters</a><a href="#about" data-i18n="nav.about">About</a><a href="#contact" data-i18n="nav.contact">Contact</a></span></nav>
+
+<!-- #endregion -->
+<!-- #region Hero -->
+<header class="hero" id="top">
+<canvas id="fx"></canvas>
+<div class="fog"></div>
+<div class="eye"><img class="eb" src="images/eye-bloom.png" alt=""><img class="ec" src="images/eye-core.png" alt=""></div>
+<img src="images/hero.jpg" srcset="images/hero-1280.jpg 1280w, images/hero.jpg 2560w" sizes="100vw" width="2560" height="1440" fetchpriority="high" alt="W-17, a black robot with glowing white lines, close-up in the dark">
+<div class="hero-text">
+<div class="eyebrow" data-i18n="eyebrow">3D Character Artist &amp; World Builder</div>
+<h1 data-i18n-html="h1">Characters<br><em>built in light.</em></h1>
+<p data-i18n="hero.p">Every character has its own melody. These are mine, modelled in Blender.</p>
+<div class="btns"><a class="btn p" href="characters.html" data-go><bdi data-i18n="btn.explore">Explore characters</bdi><span>→</span></a><a class="btn g" href="#about"><bdi data-i18n="btn.about">About me</bdi></a></div>
+</div>
+<div class="dock">
+<ul class="cards" id="cards" aria-label="Characters"></ul>
+<div class="panel" aria-hidden="true"><div><b id="cnt">03</b><span data-i18n="stat.chars">Characters</span></div><div><b>Blender</b><span data-i18n="stat.model">Modelling</span></div><div><b>Godot</b><span data-i18n="stat.games">Game worlds</span></div></div>
+</div>
+<a class="cue" href="#about" data-i18n="cue">Scroll</a>
+</header>
+
+<!-- #endregion -->
+<!-- #region About -->
+<section class="about" id="about">
+<h2 class="rv" data-i18n="about.h">About</h2>
+<div class="rv">
+<p data-i18n="about.p1">I'm Mera Melody, a computer science student who builds 3D characters in Blender and writes the stories they come from. I also make games in Godot and play violin for fun.</p><p data-i18n="about.p2">The name comes from an idea: every character carries its own melody, so each one I create is a small piece of me.</p>
+<ul class="chips"><li>Blender</li><li>Godot</li><li data-i18n="chip.story">Storytelling</li><li data-i18n="chip.violin">Violin</li></ul>
+</div>
+</section>
+
+<!-- #endregion -->
+<!-- #region Melody line -->
+<div class="wave" aria-hidden="true"></div>
+
+<!-- #endregion -->
+<!-- #region Contact -->
+<section class="cta" id="contact">
+<h2 class="rv" data-i18n="contact.h">Let's work together</h2>
+<p class="rv" data-i18n="contact.p">Have a project, a game or an idea? Send me an email.</p>
+<div class="rv"><a class="btn p" href="mailto:mera.melody.41148.n@gmail.com">mera.melody.41148.n@gmail.com<span>→</span></a></div>
+</section>
+
+<!-- #endregion -->
+<!-- #region Footer -->
+<footer>© 2026 Mera Melody</footer>
+
+<!-- #endregion -->
+<!-- #region Page scripts -->
+<script src="js/index.js"></script>
+<script src="js/index-wave.js"></script>
+<script src="js/cursor.js" defer></script>
+<!-- #endregion -->
+</body>
+</html>
